@@ -1,0 +1,43 @@
+
+<template>
+    <h3>History</h3>
+        <ul id="list" class="list">
+
+            <li :class="transaction.amount >= 0 ? 'plus' :'minus'" v-for="transaction in transactions" :key="transaction.id">
+                    {{ transaction.text }} <span>EGP {{ transaction.amount }}</span>
+                    <button class="delete-btn" @click="deleteTransaction(transaction.id)">x</button>
+            </li>
+            <!-- <li class="plus">
+            Paycheck <span>$800</span><button class="delete-btn">x</button>
+            </li>
+            <li class="minus">
+            Cash <span>-$200</span><button class="delete-btn">x</button>
+            </li> -->
+        </ul>
+</template>
+
+
+<script setup>
+
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    transactions :{
+        type : Array , 
+        required : true
+    }
+})
+
+const emits = defineEmits(['deleteTransaction'])
+
+// For Delete Transaction 
+const deleteTransaction = (id)=>{
+    emits('deleteTransaction' ,id)
+}
+
+
+
+
+
+</script>
+
