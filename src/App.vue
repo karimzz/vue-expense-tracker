@@ -5,7 +5,7 @@
   <div class="container">
     <Balance :total="+total"/>
     <IncomeExpenses :income="parseInt(income)" :expense="+expense" />
-    <TransactionList :transactions="transactions" @deleteTransaction="handleTransactionDeleted" />
+    <TransactionList :transactions="transactions" @deleteTransaction="handleTransactionDeleted" @clearTransactions="clearAllTransactionHandler" />
     <AddTransaction @transactionSubmitted="handleTransactionSubmittedData" />
   </div>
 
@@ -85,6 +85,11 @@ const handleTransactionDeleted = (id)=>{
   // For Save Transaction In Broweser
   saveToLocalStroage() ;
 
+}
+
+const clearAllTransactionHandler = ()=>{
+  transactions.value = [] ; 
+  localStorage.removeItem('transactions');
 }
 
 const saveToLocalStroage = ()=>{

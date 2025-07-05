@@ -1,6 +1,9 @@
 
 <template>
-    <h3>History</h3>
+    <div class="text-con">
+        <h3>History</h3>
+        <button class="clear-btn" @click="clearAllTransactions">Clear All</button>
+    </div>
         <ul id="list" class="list">
 
             <p v-if="transactions.length <=  0">No Transactions</p>
@@ -24,13 +27,17 @@ const props = defineProps({
     }
 })
 
-const emits = defineEmits(['deleteTransaction'])
+const emits = defineEmits(['deleteTransaction' , 'clearTransactions'])
 
 // For Delete Transaction 
 const deleteTransaction = (id)=>{
     emits('deleteTransaction' ,id)
 }
 
+// For Clear All Transactions
+const clearAllTransactions = ()=>{
+    emits('clearTransactions');
+}
 
 
 
