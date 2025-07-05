@@ -55,13 +55,13 @@ const expense = computed(()=>{
 const handleTransactionSubmittedData = (transactionData)=>{
 
   if(transactionData.amount <= 0  && Math.abs(transactionData.amount) <= total._value){
-    transactions.value.push({
+    transactions.value.unshift({
       id : transactions.value.length ,
       ...transactionData
     });
     toast.success("Tranaction Done")
   }else if(transactionData.amount > 0){
-    transactions.value.push({
+    transactions.value.unshift({
       id : transactions.value.length ,
       ...transactionData
     });

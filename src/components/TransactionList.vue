@@ -8,12 +8,7 @@
                     {{ transaction.text }} <span>EGP {{ transaction.amount }}</span>
                     <button class="delete-btn" @click="deleteTransaction(transaction.id)">x</button>
             </li>
-            <!-- <li class="plus">
-            Paycheck <span>$800</span><button class="delete-btn">x</button>
-            </li>
-            <li class="minus">
-            Cash <span>-$200</span><button class="delete-btn">x</button>
-            </li> -->
+
         </ul>
 </template>
 

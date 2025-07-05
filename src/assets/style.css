@@ -25,6 +25,12 @@ body {
   width: 400px;
 }
 
+@media(max-width : 550px){
+  .container {
+    padding: 2vh;
+  }
+}
+
 h1 {
   letter-spacing: 1px;
   margin: 0;
@@ -109,7 +115,30 @@ input[type='number'] {
 .list {
   list-style-type: none;
   padding: 0;
+  max-height: 30vh;
+  overflow-y: scroll;
   margin-bottom: 40px;
+  padding: 0vh 1vh;
+}
+
+.list {
+  --sb-track-color: transparent;
+  --sb-thumb-color: #848484;
+  --sb-size: 5px;
+}
+
+.list::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.list::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 1px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 1px;
 }
 
 .list li {
