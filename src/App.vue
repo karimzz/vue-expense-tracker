@@ -21,16 +21,22 @@ import AddTransaction from './components/AddTransaction.vue';
 
 import { useToast } from 'vue-toastification';
 
-import { computed, ref } from 'vue';
+import { computed, ref ,onMounted } from 'vue';
+
+
+// For Get All Transaction When Rendered
+onMounted(()=>{
+  const savedTransactions = JSON.parse(localStorage.getItem("transactions")) ; 
+  if(savedTransactions){
+    transactions.value = savedTransactions ; 
+  }
+})
 
 // For Alrert User
 const toast = useToast() ;
 
 const transactions =ref( [
-            {id : 1 , text :"Food" , amount : -20.00},
-            {id : 2 , text :"Salary" , amount : 8000.00},
-            {id : 3 , text :"Picnic" , amount : -300.00},
-            {id : 4 , text :"Camera" , amount : -700.00},
+            
         ])
 
 const total = computed(()=>{
@@ -59,28 +65,30 @@ const handleTransactionSubmittedData = (transactionData)=>{
       id : transactions.value.length ,
       ...transactionData
     });
+
     toast.success("Tranaction Done")
 
   }else{
     toast.error("You are break limit");
   }
 
-  // if(total._value >= transactionData.amount ){
-  //   console.log("Condition Achieved")
-  //   toast.success('Transaction Done')
-  //   transactions.value.push({
-  //     id : transactions.value.length ,
-  //     ...transactionData
-  //   });
-  // }else{
-  //   toast.error("You are break limit")
-  // }
+  // For Save Transaction In Broweser
+  saveToLocalStroage()
+
   
 }
 
 const handleTransactionDeleted = (id)=>{
   transactions.value =  transactions.value.filter((item)=>item.id !== id);
   toast.success('Transaction Deleted') ;
+
+  // For Save Transaction In Broweser
+  saveToLocalStroage() ;
+
+}
+
+const saveToLocalStroage = ()=>{
+  localStorage.setItem('transactions' , JSON.stringify(transactions.value));
 }
 
 </script>
