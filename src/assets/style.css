@@ -61,6 +61,12 @@ h4 {
   text-align: center;
 }
 
+@media(max-width:550px){
+  h2{
+  margin-left: 1.5vh;
+}
+}
+
 .inc-exp-container > div:first-of-type {
   border-right: 1px solid #dedede;
 }
