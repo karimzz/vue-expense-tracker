@@ -20,14 +20,22 @@ body {
   font-size: 18px;
 }
 
+@media(max-width : 550px){
+  body {
+    display: block;
+  }
+}
+
+
 .container {
   margin: 30px auto;
-  width: 400px;
+  width: 430px;
 }
 
 @media(max-width : 550px){
   .container {
     padding: 2vh;
+    width: 100%;
   }
 }
 
@@ -124,7 +132,7 @@ input[type='number'] {
   max-height: 30vh;
   overflow-y: scroll;
   margin-bottom: 40px;
-  padding: 0vh 1vh;
+  padding: 0vh 3vh;
 }
 
 .list {
