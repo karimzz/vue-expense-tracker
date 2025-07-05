@@ -10,7 +10,7 @@
                     >Amount <br />
                     (negative - expense, positive - income)</label
                 >
-                <input type="text" v-model="amount" id="amount" placeholder="Enter amount..." />
+                <input type="number" v-model="amount" id="amount" placeholder="Enter amount..." />
             </div>
             <button class="btn">Add transaction</button>
         </form>
