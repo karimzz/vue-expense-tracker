@@ -25,6 +25,7 @@
 
     const text = ref('') ; 
     const amount  = ref('') ;
+    const date = ref('');
 
     const emit = defineEmits(['transactionSubmitted']);
 
@@ -33,20 +34,22 @@
 
 
     const onSubmit = ()=>{
-        if(!text.value || !amount.value){
+        if(!text.value || !amount.value || date.value){
             toast.error("Both fields must be filled");
             return;
         }
 
         const transactionData = {
             text : text.value ,
-            amount : parseFloat(amount.value)
+            amount : parseFloat(amount.value),
+            date : new Date().toISOString().slice(0 , 10)
         }
 
         emit("transactionSubmitted" , transactionData)
 
         text.value = "" ;
-        amount.value = ""
+        amount.value = "";
+        date.value = "";
     }
 
 </script>

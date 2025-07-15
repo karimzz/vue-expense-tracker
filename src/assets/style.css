@@ -163,6 +163,7 @@ input[type='number'] {
   position: relative;
   padding: 10px;
   margin: 10px 0;
+  height: 58px;
 }
 
 .list li.plus {
@@ -210,4 +211,16 @@ input[type='number'] {
   background-color: transparent;
   border: none;
   font-weight: 600;
+}
+
+
+.amoutn-con{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.withdraw-date{
+  font-size: 13px;
+  color: #a9abae;
+  margin: 2px 0px;
 }

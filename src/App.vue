@@ -69,7 +69,11 @@ const handleTransactionSubmittedData = (transactionData)=>{
     toast.success("Tranaction Done")
 
   }else{
-    toast.error("You are break limit");
+    transactions.value.unshift({
+      id : transactions.value.length ,
+      ...transactionData
+    });
+    toast.warning("You are break limit");
   }
 
   // For Save Transaction In Broweser
